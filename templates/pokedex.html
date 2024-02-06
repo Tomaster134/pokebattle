@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+
+{%block title%}
+    PokeDex
+{%endblock%}
+
+{%block styles%}
+<link rel="stylesheet" href="../static/styles/pokedex.css">
+{%endblock%}
+
+{%block content%}
+<div class="lookup">
+<form method="POST">
+    <div class="mb-3">
+      <label for="pokemon" class="form-label">Pokemon</label>
+      <input type="text" class="form-control" id="pokemon" name="lookup">
+    <button type="submit" class="btn btn-primary">Lookup!</button>
+  </form>
+</div>
+
+{% if pokemon%}
+<div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src={{pokemon.sprite_url}} alt="Avatar" style="width:280px;height:280px;">
+        <p>{{pokemon.name}}</p>
+      </div>
+      <div class="flip-card-back">
+        <h1>{{pokemon.name}}</h1>
+        <p>{{pokemon.base_hp}}</p>
+        <p>{{pokemon.base_exp}}</p>
+        <p>{{pokemon.base_atk}}</p>
+        <p>{{pokemon.base_def}}</p>
+        <p>{{pokemon.base_s_atk}}</p>
+        <p>{{pokemon.base_s_def}}</p>
+        <p>{{pokemon.base_speed}}</p>
+        <p>{{pokemon.ability1}}</p>
+      </div>
+    </div>
+  </div>
+{%endif%}
+{%endblock%}

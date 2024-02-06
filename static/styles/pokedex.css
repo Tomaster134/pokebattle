@@ -50,6 +50,7 @@
 .flip-card-back {
   background-color: dodgerblue;
   color: white;
+  border-radius: 20px;
   transform: rotateY(180deg);
 }
 

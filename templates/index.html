@@ -4,6 +4,13 @@
     Welcome! 
 {%endblock%} 
 
+{%block styles%}
+<link rel="stylesheet" href="../static/styles/index.css">
+{%endblock%}
+
 {%block content%}
-    Welcome to the PokeBattle 
+    <div class="overall">
+        <header class="header"><div><a href="/"><img src="../static/imgs/pokebattle.png" alt="Pokebattle Header Image" class="pokebattle-img"></a><span class="img-shadow"></span></header>
+        <main>Welcome to Pokébattle, the soon to be hottest app on the market. Unfortunately, this is still a heavy WIP, so all we've got right now is <a href="/pokedex">the Pokédex</a>!</main>
+    </div>
 {%endblock%}

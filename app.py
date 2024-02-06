@@ -36,8 +36,8 @@ def pokegrabber(pokemon=''):
 def pokedex():
     if request.method == 'POST':
         lookup = request.form.get('lookup')
-        if 'error code' in lookup:
-            return lookup
+        if 'error code' in pokegrabber(lookup):
+            return pokegrabber(lookup)
         else:
             pokemon = pokegrabber(lookup)
             return render_template('pokedex.html', pokemon=pokemon)

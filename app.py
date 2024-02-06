@@ -43,3 +43,4 @@ def pokedex():
             return render_template('pokedex.html', pokemon=pokemon)
     else:
         return render_template('pokedex.html')
+        

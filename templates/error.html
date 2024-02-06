@@ -1,0 +1,18 @@
+{%extends 'base.html'%} 
+
+{%block title%}
+    Error!
+{%endblock%} 
+
+{%block styles%}
+    <link rel="stylesheet" href="../static/styles/error.css">
+{%endblock%}
+
+
+{%block content%}
+
+<header class="header">
+    <header class="header"><div><a href="/"><img src="../static/imgs/error.png" alt="Pokebattle Error Image" class="error-img"></a><span class="img-shadow"></span></header>
+  <p>{{error}}</p>
+</header>
+{%endblock%}

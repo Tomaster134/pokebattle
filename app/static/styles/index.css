@@ -1,30 +1,97 @@
-* {
-    font-family: "Electrolize", sans-serif;
-    box-sizing: border-box;
-    border: 0;
-    padding: 0;
-  }
+@import url(./styles.css);
 
 .overall {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-  .pokebattle-img {
-    height: 150px;
-    margin: 20px
-  }
+.pokebattle-img {
+  height: 150px;
+  margin: 20px;
+}
 
-  .img-shadow {
-    box-shadow: 0px 0px 40px 40px rgb(66, 69, 240),0px 0px 50px 50px gold;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-  }
+.header {
+  position: relative;
+}
 
-  .header {
-    position: relative;
-  }
+.main-overall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-header {
+  margin-top: 50px;
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 20px;
+  grid-template-areas:
+    "square1 square2 square3"
+    "square4 square5 square6";
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  border: 1px black solid;
+  background-color: rgba(192, 192, 192, 0.3);
+  border-radius: 50px;
+  height: 600px;
+  width: 75%;
+  margin: 0 40px 40px 40px;
+}
+
+.content-square {
+  width: 50%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px rgba(59, 76, 202, 0.8) solid;
+  border-radius: 50px;
+  background-color: rgba(192, 192, 192, 0.5);
+}
+
+.content-img {
+  width: 75%;
+  position: relative;
+  margin-top: 20px;
+}
+
+.content-text {
+  font-family: "VT323", monospace;
+  font-size: 2rem;
+  margin-top: 20px;
+  padding: 0px 10px;
+  background-color: rgba(204, 0, 0, 0.75);
+  border-radius: 5px;
+}
+
+.content-link {
+  display: flex;
+  justify-content: center;
+}
+
+.square1 {
+  grid-area: square1;
+}
+.square2 {
+  grid-area: square2;
+}
+.square3 {
+  grid-area: square3;
+}
+.square4 {
+  grid-area: square4;
+}
+.square5 {
+  grid-area: square5;
+}
+.square6 {
+  grid-area: square6;
+}

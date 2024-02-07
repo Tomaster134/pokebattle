@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+{%block title%}
+    PokeDex
+{%endblock%}
+
+{%block styles%}
+<link rel="stylesheet" href="../static/styles/pokedex.css">
+{%endblock%}
+
+{%block content%}
+<main>
+  <div class="overall">
+  <div class="img-container"><a href="/"><img src="../static/imgs/pokedex.png" alt="Pokedex Label Image" class="pokedex-img"></a><span class="img-shadow"></span></div>
+  <div class="blurb">Use this tool to look up any Pokémon you desire, either by name or ID number. If you're uncertain, you can leave it blank or enter "random" to look at a random Pokémon.</div>
+<div class="lookup">
+  <form method="POST" class="lookup-form">
+    {{form.hidden_tag()}}
+    <div class="mb-3">
+      <div class="lookup-together">
+      {{ form.pokemon(class="form-control lookup-input", id="pokemon", placeholder="Pokémon name or ID number")}}
+      {{ form.lookup_btn(class="btn btn-primary lookup-btn")}}
+      </div>
+    </div>
+  </form>
+</div>
+
+{% if pokemon%}
+{% include './includes/card.html'%}
+{%endif%}
+{%endblock%}

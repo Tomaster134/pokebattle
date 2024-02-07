@@ -146,3 +146,11 @@
   transform: translate(-50%, -50%);
   z-index: -1;
 }
+
+.id_num {
+  font-family: "VT323", monospace;
+  margin: 0;
+  font-size: .8rem;
+  position: relative;
+  bottom: 15px
+}

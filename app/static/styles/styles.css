@@ -1,15 +1,44 @@
 * {
-    font-family: "Electrolize", sans-serif;
-    box-sizing: border-box;
-    border: 0;
-    padding: 0;
-  }
+  font-family: "Electrolize", sans-serif;
+  box-sizing: border-box;
+  border: 0;
+  padding: 0;
+}
 
-  .img-shadow {
-    box-shadow: 0px 0px 40px 40px rgb(66, 69, 240), 0px 0px 50px 50px gold;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+.header {
+  position: relative;
+}
+
+.header-img {
+  height: 150px;
+  margin: 20px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(204, 0, 0, 1) 10%,
+    rgba(59, 76, 202, 1) 20%,
+    rgba(144, 198, 248, 1) 50%
+  );
+}
+
+.account-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.account-btn {
+  background-color: rgba(204, 0, 0, 0.3);
+}
+
+.account-btn:hover {
+  background-color: rgba(204, 0, 0, 0.8);
+}
+
+.account-menu {
+  background-color: rgba(204, 0, 0, 0.3);
+}
+
+.account-item:hover {
+  background-color: rgba(204, 0, 0, 0.4);
 }

@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+{%block title%} Sign Up {%endblock%}
+{%block styles%} <link rel="stylesheet" href="../static/styles/login.css">{%endblock%}
+
+{%block content%}
+<div class="overall">
+<header class="header">
+    <header class="header"><div><a href="/"><img src="../static/imgs/signup.png" alt="Pokebattle Signup Image" class="header-img"></a></header>
+</header>
+<div class="form-container">
+<form method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      {{ form.username(class="form-control", id="username", placeholder="Username") }}
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        {{ form.email(class="form-control", id="email", placeholder="Email") }}
+      </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      {{ form.password(class="form-control", id="password", placeholder="Password") }}
+    </div>
+    {{ form.signup_btn(class="btn btn-primary")}}
+  </form>
+</div>
+{%if username and password and email%}
+<p class="blurb">Good news {{username}}! I've signed you up for a bunch of niche stamp websites using the email {{email}} and with a password of {{password}}. Hope you're okay with that!</p>
+{%endif%}
+</div>
+{%endblock%}

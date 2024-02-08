@@ -1,6 +1,6 @@
 from flask import request, render_template
 from app import app
-from .forms import PokeLookUp
+from .forms import PokeLookUp, LoginForm, SignUpForm
 
 
 @app.route('/')
@@ -47,3 +47,23 @@ def pokedex():
     else:
         return render_template('pokedex.html', form=form)
         
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if request.method == 'POST' and form.validate_on_submit:
+        username = form.username.data
+        password = form.password.data
+        return render_template('login.html', username=username, password=password, form=form)
+    else:
+        return render_template('login.html', form=form)
+    
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    form = SignUpForm()
+    if request.method == 'POST' and form.validate_on_submit:
+        username = form.username.data
+        email = form.email.data
+        password = form.password.data
+        return render_template('signup.html', username=username, email=email, password=password, form=form)
+    else:
+        return render_template('signup.html', form=form)

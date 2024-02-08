@@ -16,16 +16,22 @@
       rel="stylesheet"
     />
     <title>{%block title%}{%endblock%}</title>
+    <link rel="stylesheet" href="../static/styles/styles.css">
     {%block styles%}{%endblock%}
   </head>
   <body>
     <style>
       body {
-        background:
-        url(../static/imgs/Pokemon\ Wallpaper.png) center top/cover no-repeat,
-        linear-gradient(0deg, rgba(125,173,113,1) 49%, rgba(121,201,250,1) 51%);
+        background: url(../static/imgs/Pokemon\ Wallpaper.png) center top/cover
+            no-repeat,
+          linear-gradient(
+            180deg,
+            #88ac74 49%,
+            rgba(121, 201, 250, 1) 51%
+          );
       }
     </style>
+    {%include './includes/account-menu.html'%}
     {%block content%}{%endblock%}
 
     <script

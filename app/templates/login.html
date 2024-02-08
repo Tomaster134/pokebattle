@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+{%block title%} Login {%endblock%}
+{%block styles%} <link rel="stylesheet" href="../static/styles/login.css">{%endblock%}
+
+{%block content%}
+<div class="overall">
+<header class="header">
+    <header class="header"><div><a href="/"><img src="../static/imgs/login.png" alt="Pokebattle Login Image" class="header-img"></a></header>
+</header>
+<div class="form-container">
+<form method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      {{ form.username(class="form-control", id="username", placeholder="Username") }}
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      {{ form.password(class="form-control", id="password", placeholder="Password") }}
+    </div>
+    {{ form.login_btn(class="btn btn-primary")}}
+  </form>
+</div>
+{%if username and password%}
+<p class="blurb">Oh no! I'm sorry {{username}}, but you submitted data on a sketchy barely completed website and now I've got your data. {{password}} isn't exactly a secure password but I guess that doesn't matter anymore anyway.</p>
+{%endif%}
+</div>
+{%endblock%}

@@ -42,3 +42,19 @@
 .account-item:hover {
   background-color: rgba(204, 0, 0, 0.4);
 }
+
+.account-name {
+  font-size: 1.8rem;
+  font-family: "VT323", monospace;
+  color: rgba(59, 76, 202, 1);
+  text-align: center;
+}
+
+.flashes {
+  padding: 0;
+  margin: 0;
+}
+
+.flash-alert {
+  margin-bottom: 0;
+}

@@ -1,16 +1,19 @@
-from flask import request, render_template
+from flask import request, render_template, redirect, url_for, flash
 from app import app
 from .forms import PokeLookUp, LoginForm, SignUpForm
-
+from flask_login import login_user, logout_user, login_required, current_user
+import requests
+from random import randint
+from app.models import User
+from werkzeug.security import check_password_hash
+from sqlalchemy import exc
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
 def pokegrabber(pokemon=''):
-    import requests
     if pokemon == 'random' or pokemon == '':
-        from random import randint
         pokemon = randint(1,1025)
     url = f'https://pokeapi.co/api/v2/pokemon/{pokemon}'
     response = requests.get(url)
@@ -53,7 +56,15 @@ def login():
     if request.method == 'POST' and form.validate_on_submit:
         username = form.username.data
         password = form.password.data
-        return render_template('login.html', username=username, password=password, form=form)
+
+        queried_user = User.query.filter(User.username == username).first()
+        if queried_user and check_password_hash(queried_user.password, password):
+            flash(f'Login successful! Welcome back {queried_user.username}', 'info')
+            login_user(queried_user)
+            return redirect(url_for('index'))
+        else:
+            flash('Username or password incorrect :(', 'warning')
+            return render_template('login.html', form=form)
     else:
         return render_template('login.html', form=form)
     
@@ -64,6 +75,24 @@ def signup():
         username = form.username.data
         email = form.email.data
         password = form.password.data
-        return render_template('signup.html', username=username, email=email, password=password, form=form)
+        try:
+            new_user = User(username, email, password)
+            new_user.save()
+            flash(f'Sign up successful! Welcome to PokéBattle {username}! Please log in with your new account.', 'success')
+            return redirect(url_for('login'))
+        except exc.IntegrityError:
+            flash(f'Username or email already taken.', 'warning')
+            return render_template('signup.html', form=form)
     else:
         return render_template('signup.html', form=form)
+
+@app.route('/account')
+def account():
+    if current_user.is_anonymous: return redirect(url_for('login'))
+    else: return render_template('account.html')
+    
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('index'))

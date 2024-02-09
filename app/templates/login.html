@@ -6,10 +6,12 @@
 {%block content%}
 <div class="overall">
 <header class="header">
-    <header class="header"><div><a href="/"><img src="../static/imgs/login.png" alt="Pokebattle Login Image" class="header-img"></a></header>
+    <header class="header"><div><a href="{{ url_for('index') }}"><img src="../static/imgs/login.png" alt="Pokebattle Login Image" class="header-img"></a></header>
 </header>
+{%include './includes/flash.html'%}
 <div class="form-container">
 <form method="POST">
+  {{ form.hidden_tag() }}
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
       {{ form.username(class="form-control", id="username", placeholder="Username") }}
@@ -21,8 +23,6 @@
     {{ form.login_btn(class="btn btn-primary")}}
   </form>
 </div>
-{%if username and password%}
-<p class="blurb">Oh no! I'm sorry {{username}}, but you submitted data on a sketchy barely completed website and now I've got your data. {{password}} isn't exactly a secure password but I guess that doesn't matter anymore anyway.</p>
-{%endif%}
+<p class="bait">Don't have an account? <a href="{{url_for('signup')}}">Sign up for one!</a></p>
 </div>
 {%endblock%}

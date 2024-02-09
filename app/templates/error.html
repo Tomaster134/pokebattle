@@ -12,7 +12,7 @@
 {%block content%}
 
 <header class="header">
-    <header class="header"><div><a href="/"><img src="../static/imgs/error.png" alt="Pokebattle Error Image" class="header-img"></a></header>
+    <header class="header"><div><a href="{{ url_for('index') }}"><img src="../static/imgs/error.png" alt="Pokebattle Error Image" class="header-img"></a></header>
   <p>{{error}}</p>
 </header>
 {%endblock%}

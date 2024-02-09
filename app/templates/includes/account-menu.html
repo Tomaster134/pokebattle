@@ -19,7 +19,15 @@
       </svg>
     </button>
     <ul class="dropdown-menu account-menu">
-      <li><a class="dropdown-item account-item" href="/login">Login</a></li>
-      <li><a class="dropdown-item account-item" href="/signup">Signup</a></li>
+      {%if current_user.is_anonymous %}
+      <li><a class="dropdown-item account-item" href="{{ url_for('login') }}">Login</a></li>
+      <li><a class="dropdown-item account-item" href="{{ url_for('signup') }}">Signup</a></li>
+      {%else%}
+      <li><p class="account-name">{{current_user.username}}</p></li>
+      <li><a class="dropdown-item account-item" href="{{ url_for('index') }}">Home</a></li>
+      <li><a class="dropdown-item account-item" href="{{ url_for('pokedex') }}">PokéDex</a></li>
+      <li><a class="dropdown-item account-item" href="{{ url_for('account') }}">Account</a></li>
+      <li><a class="dropdown-item account-item" href="{{ url_for('logout') }}">Logout</a></li>
+      {%endif%}
     </ul>
   </div>

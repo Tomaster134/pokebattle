@@ -10,16 +10,18 @@
 
 {%block content%}
     <div class="overall">
-        <header class="header"><div><a href="/"><img src="../static/imgs/pokebattle.png" alt="Pokebattle Header Image" class="header-img"></a></header>
-        <main class="main-overall"><p>Welcome to Pokébattle, the soon to be hottest app on the market. Unfortunately, this is still a heavy WIP, so all we've got right now is <a href="/pokedex">the Pokédex</a>!</p>
+        <header class="header"><div><a href="{{ url_for('index') }}"><img src="../static/imgs/pokebattle.png" alt="Pokebattle Header Image" class="header-img"></a></header>
+        <main class="main-overall"><p>Welcome to Pokébattle, the soon to be hottest app on the market. Unfortunately, this is still a heavy WIP, so all we've got right now is <a href="{{ url_for('pokedex') }}">the Pokédex</a>!</p>
+            {%include './includes/flash.html'%}
         <h2 class="content-header">Content!</h2>
         <div class="content-container">
-            <div class="content-square square1"><a class="content-link" href="./pokedex"><img src="../static/imgs/pokedex-sprite.png" alt="Pokedex Sprite" class="content-img"></a><p class="content-text">PokéDex</p></div>
-            <div class="content-square square2"><img src="../static/imgs/pokedex-sprite.png" alt="Pokedex Sprite" class="content-img"><p class="content-text">Test</p></div>
+            <div class="content-square square1"><a class="content-link" href="{{ url_for('pokedex') }}"><img src="../static/imgs/pokedex-sprite.png" alt="Pokedex Sprite" class="content-img"></a><p class="content-text">PokéDex</p></div>
+            <div class="content-square square2"><a class="content-link" href="{{ url_for('account') }}"><img src="../static/imgs/trainer_sprite.png" alt="Trainer Sprite" class="content-img"></a><p class="content-text">Account</p></div>
             <div class="content-square square3"><img src="../static/imgs/pokedex-sprite.png" alt="Pokedex Sprite" class="content-img"><p class="content-text">Test</p></div>
             <div class="content-square square4"><img src="../static/imgs/pokedex-sprite.png" alt="Pokedex Sprite" class="content-img"><p class="content-text">Test</p></div>
             <div class="content-square square5"><img src="../static/imgs/pokedex-sprite.png" alt="Pokedex Sprite" class="content-img"><p class="content-text">Test</p></div>
             <div class="content-square square6"><img src="../static/imgs/pokedex-sprite.png" alt="Pokedex Sprite" class="content-img"><p class="content-text">Test</p></div>
         </div></main>
+
     </div>
 {%endblock%}

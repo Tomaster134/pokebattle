@@ -2,3 +2,5 @@ venv/
 __pycache__/
 test.py
 .env
+notes.txt
+migrations/

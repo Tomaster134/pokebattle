@@ -32,6 +32,8 @@
       }
     </style>
     {%include './includes/account-menu.html'%}
+    <div class="overall">
+      <header class="header"><a href="{{ url_for('main.index') }}"><img src={%block header%}{%endblock%} alt="Header Image" class="header-img"></a></header>
     {%block content%}{%endblock%}
 
     <script

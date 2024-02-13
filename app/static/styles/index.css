@@ -1,9 +1,3 @@
-.overall {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .main-overall {
   display: flex;
   flex-direction: column;

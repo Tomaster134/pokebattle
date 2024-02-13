@@ -13,8 +13,16 @@ login_manager.init_app(app)
 db.init_app(app)
 migrate = Migrate(app, db)
 
+login_manager.login_view = 'auth.login'
+login_manager.login_message = 'Ya gotta be logged in to see that, bubs.'
+login_manager.login_message_category = 'warning'
+
+from app.blueprints.auth import auth
+from app.blueprints.main import main
+
+app.register_blueprint(auth)
+app.register_blueprint(main)
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
-
-from app import routes

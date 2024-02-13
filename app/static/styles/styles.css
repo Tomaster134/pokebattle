@@ -9,6 +9,12 @@
   position: relative;
 }
 
+.overall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .header-img {
   height: 150px;
   margin: 20px;

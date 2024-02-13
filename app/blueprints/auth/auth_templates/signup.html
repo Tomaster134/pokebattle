@@ -1,13 +1,9 @@
 {%extends 'base.html'%}
 
-{%block title%} Login {%endblock%}
+{%block title%} Sign Up {%endblock%}
 {%block styles%} <link rel="stylesheet" href="../static/styles/login.css">{%endblock%}
-
+{%block header%}"../static/imgs/signup.png"{%endblock%}
 {%block content%}
-<div class="overall">
-<header class="header">
-    <header class="header"><div><a href="{{ url_for('index') }}"><img src="../static/imgs/login.png" alt="Pokebattle Login Image" class="header-img"></a></header>
-</header>
 {%include './includes/flash.html'%}
 <div class="form-container">
 <form method="POST">
@@ -17,12 +13,15 @@
       {{ form.username(class="form-control", id="username", placeholder="Username") }}
     </div>
     <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        {{ form.email(class="form-control", id="email", placeholder="Email") }}
+      </div>
+    <div class="mb-3">
       <label for="password" class="form-label">Password</label>
       {{ form.password(class="form-control", id="password", placeholder="Password") }}
     </div>
-    {{ form.login_btn(class="btn btn-primary")}}
+    {{ form.signup_btn(class="btn btn-primary")}}
   </form>
 </div>
-<p class="bait">Don't have an account? <a href="{{url_for('signup')}}">Sign up for one!</a></p>
 </div>
 {%endblock%}

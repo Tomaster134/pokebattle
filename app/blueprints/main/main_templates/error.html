@@ -8,11 +8,9 @@
     <link rel="stylesheet" href="../static/styles/error.css">
 {%endblock%}
 
-
+{%block header%}"../static/imgs/error.png"{%endblock%}
 {%block content%}
 
-<header class="header">
-    <header class="header"><div><a href="{{ url_for('index') }}"><img src="../static/imgs/error.png" alt="Pokebattle Error Image" class="header-img"></a></header>
   <p>{{error}}</p>
-</header>
+    </div>
 {%endblock%}

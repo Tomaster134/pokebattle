@@ -20,14 +20,14 @@
     </button>
     <ul class="dropdown-menu account-menu">
       {%if current_user.is_anonymous %}
-      <li><a class="dropdown-item account-item" href="{{ url_for('login') }}">Login</a></li>
-      <li><a class="dropdown-item account-item" href="{{ url_for('signup') }}">Signup</a></li>
+      <li><a class="dropdown-item account-item" href="{{ url_for('auth.login') }}">Login</a></li>
+      <li><a class="dropdown-item account-item" href="{{ url_for('auth.signup') }}">Signup</a></li>
       {%else%}
       <li><p class="account-name">{{current_user.username}}</p></li>
-      <li><a class="dropdown-item account-item" href="{{ url_for('index') }}">Home</a></li>
-      <li><a class="dropdown-item account-item" href="{{ url_for('pokedex') }}">PokéDex</a></li>
-      <li><a class="dropdown-item account-item" href="{{ url_for('account') }}">Account</a></li>
-      <li><a class="dropdown-item account-item" href="{{ url_for('logout') }}">Logout</a></li>
+      <li><a class="dropdown-item account-item" href="{{ url_for('main.index') }}">Home</a></li>
+      <li><a class="dropdown-item account-item" href="{{ url_for('main.pokedex') }}">PokéDex</a></li>
+      <li><a class="dropdown-item account-item" href="{{ url_for('main.account') }}">Account</a></li>
+      <li><a class="dropdown-item account-item" href="{{ url_for('auth.logout') }}">Logout</a></li>
       {%endif%}
     </ul>
   </div>

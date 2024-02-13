@@ -1,9 +1,3 @@
-.overall {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .silly-lil-account-blurb {
   background-color: rgba(230, 230, 230, 0.75);
   border: 1px solid black;

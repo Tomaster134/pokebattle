@@ -3,10 +3,8 @@
 {%block title%} Account {%endblock%}
 
 {%block styles%} <link rel="stylesheet" href="../static/styles/account.css"> {%endblock%}
-
+{%block header%}"../static/imgs/account.png"{%endblock%}
 {%block content%}
-<div class="overall">
-    <header class="header"><a href="{{ url_for('index') }}"><img src="../static/imgs/account.png" alt="Account Header Image" class="header-img"></a></header>
     <main><p class="silly-lil-account-blurb">Nothing here yet but gosh you just wait {{current_user.username}} it's gunna look SO good when I have stuff to put here. <br>For now, check out this SICK box shadow.</p></main>
 </div>
 {%endblock%}

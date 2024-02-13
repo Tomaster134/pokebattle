@@ -5,18 +5,9 @@
 {%block styles%}
 <link rel="stylesheet" href="../static/styles/pokedex.css" />
 {%endblock%}
-
+{%block header%}"../static/imgs/pokedex.png"{%endblock%}
 {%block content%}
-<main>
-  <div class="overall">
-    <header class="header">
-      <a href="{{ url_for('index') }}"
-        ><img
-          src="../static/imgs/pokedex.png"
-          alt="Pokedex Label Image"
-          class="header-img" /></a
-      >
-    </header>
+<main class="main">
     <div class="blurb">
       Use this tool to look up any Pokémon you desire, either by name or ID
       number. If you're uncertain, you can leave it blank or enter "random" to
@@ -37,6 +28,8 @@
     {% if pokemon%}
     {% include './includes/card.html'%}
     {%endif%}
-  </div>
-</main>
+  </main>
+</div>
+
+
 {%endblock%}

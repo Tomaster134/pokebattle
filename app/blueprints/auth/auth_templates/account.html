@@ -1,0 +1,28 @@
+{%extends 'base.html'%} 
+
+{%block title%}
+    Account
+{%endblock%} 
+
+{%block styles%}
+    <link rel="stylesheet" href="../static/styles/account.css">
+{%endblock%}
+
+{%block header%}"../static/imgs/account.png"{%endblock%}
+{%block content%}
+<main class="main-overall">
+    {%include './includes/flash.html'%}
+<h2 class="content-header">Account Settings</h2>
+<div class="content-container">
+    <div class="form-container">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+          <div class="mb-3">
+            <label for="username" class="form-label">Change profile picture</label>
+            {{ form.img_url(class="form-control", id="img_url", placeholder="Image URL", value=account.prof_img) }}
+          </div>
+          {{ form.submit_btn(class="btn btn-primary")}}
+        </form></div>
+</div></main>
+</div>
+{%endblock%}

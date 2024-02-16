@@ -33,5 +33,26 @@
 .main {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
+}
+
+.catch-btn {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: rgba(42, 117, 187, 1);
+  box-shadow: inset rgba(205, 0, 0, 1) 0px 0px 15px 3px,
+    rgba(205, 0, 0, 1) 0px 0px 10px 2px;
+  border: 1px rgba(205, 0, 0, 1) solid;
+}
+
+.catch-btn:hover {
+  border: 1px rgba(205, 0, 0, 1) solid;
+  background-color: rgba(60, 90, 166, 1);
+}
+
+.btn-img {
+  margin-bottom: -10px;
 }

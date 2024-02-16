@@ -12,3 +12,7 @@ class SignUpForm(FlaskForm):
     email = EmailField('Email: ', validators=[DataRequired()])
     password = PasswordField('Password: ', validators=[DataRequired()])
     signup_btn = SubmitField('Sign Up!')
+
+class ChangeForm(FlaskForm):
+    img_url = StringField('Image URL: ')
+    submit_btn = SubmitField('Change Picture')

@@ -1,0 +1,20 @@
+{%extends 'base.html' %}
+
+{%block title%} Squad {%endblock%}
+
+{%block styles%} <link rel="stylesheet" href="../static/styles/squad.css"> {%endblock%}
+{%block header%}"../static/imgs/squad.png"{%endblock%}
+{%block content%}
+    <main><h2 class="squad-header">Current Squad</h2></main>
+    {%include './includes/flash.html'%}
+    {%if squad%}
+    <div class="squad">
+    {%for pokemon in squad%}
+    {% include './includes/card.html'%}
+    {%endfor%}
+    </div>
+    {%else%}
+    <p class="blurb">You gots no pokemon :( <a href="{{url_for('main.pokedex')}}">Get out there and abduct some!</a></p>
+    {%endif%}
+</div>
+{%endblock%}

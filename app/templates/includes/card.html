@@ -1,22 +1,33 @@
 <!-- Make sure to import cards.css if you use this on a page -->
 
 <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src={{pokemon.sprite_url}} alt="Avatar" style="width:250px;height:250px;" class="front-img">
-        <p class="front-text">{{pokemon.name}}</p>
-      </div>
-      <div class="flip-card-back">
-        <h1 class="front-text">{{pokemon.name}}</h1>
-        <p class="id_num">{{pokemon.id_num}}</p>
-        <div class="information">
-          <p class="info-text">Base HP: {{pokemon.base_hp}}</p>
-          <p class="info-text">Base EXP: {{pokemon.base_exp}}</p>
-          <p class="info-text">Base ATK: {{pokemon.base_atk}} || Base DEF: {{pokemon.base_def}}</p>
-          <p class="info-text">Base S. ATK: {{pokemon.base_s_atk}} || Base S. DEF: {{pokemon.base_s_def}}</p>
-          <p class="info-text">Base SPD: {{pokemon.base_spd}}</p>
-          <p class="info-text">Ability: {{pokemon.ability1}}</p>
-        </div>
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img
+        src="{{pokemon.sprite_url}}"
+        alt="Avatar"
+        style="width: 250px; height: 250px"
+        class="front-img"
+      />
+      <p class="front-text">{{pokemon.name}}</p>
+    </div>
+    <div class="flip-card-back">
+      <h1 class="front-text">{{pokemon.name}}</h1>
+      <p class="id_num">{{pokemon.id_num}}</p>
+      <div class="information">
+        <p class="info-text">Base HP: {{pokemon.base_hp}}</p>
+        <p class="info-text">Base EXP: {{pokemon.base_exp}}</p>
+        <p class="info-text">
+          Base ATK: {{pokemon.base_atk}} || Base DEF: {{pokemon.base_def}}
+        </p>
+        <p class="info-text">
+          Base S. ATK: {{pokemon.base_s_atk}} || Base S. DEF:
+          {{pokemon.base_s_def}}
+        </p>
+        <p class="info-text">Base SPD: {{pokemon.base_spd}}</p>
+        <p class="info-text">Ability: {{pokemon.ability}}</p>
       </div>
     </div>
   </div>
+  {%if squad%} <a href="{{url_for('main.release', id_num=pokemon.id_num)}}" class="btn btn-danger release">Release</a> {%endif%}
+</div>

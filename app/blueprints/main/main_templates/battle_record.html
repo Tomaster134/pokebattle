@@ -1,0 +1,25 @@
+{%extends 'base.html'%} 
+
+{%block title%}
+    Battle Record
+{%endblock%} 
+
+{%block styles%}
+    <link rel="stylesheet" href="../static/styles/record.css">
+{%endblock%}
+
+{%block header%}"../static/imgs/pokerecord.png"{%endblock%}
+{%block content%}
+<main class="main-overall">
+    {%include './includes/flash.html'%}
+<h2 class="content-header">Record</h2>
+<div class="content-container">
+    <div class="form-container">
+        <p class="info">Total Battles Fought: {{total}}</p>
+        <p class="info">Total Victories: {{victories}}</p>
+        <p class="info">Total Battles Initiated: {{attack}}</p>
+        <p class="info">Total Battles Defended: {{defend}}</p>
+</div>
+</div></main>
+</div>
+{%endblock%}

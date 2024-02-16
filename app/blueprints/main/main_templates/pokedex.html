@@ -7,6 +7,7 @@
 {%endblock%}
 {%block header%}"../static/imgs/pokedex.png"{%endblock%}
 {%block content%}
+
 <main class="main">
     <div class="blurb">
       Use this tool to look up any Pokémon you desire, either by name or ID
@@ -24,9 +25,15 @@
         </div>
       </form>
     </div>
-
+    {%include './includes/flash.html'%}
+    {% with catch_messages = get_flashed_messages(category_filter=["success"]) %}
+    {% if catch_messages %}
+    <img src="../static/imgs/pokeball_capture.gif" alt="">
+    {%endif%}
+    {%endwith%}
     {% if pokemon%}
     {% include './includes/card.html'%}
+    <a href="{{url_for('main.catch', id_num=pokemon.id_num)}}" class="btn btn-success catch-btn"><img src="../static/imgs/pokeball.png" alt="Pokeball" class="btn-img">Catch!</a>
     {%endif%}
   </main>
 </div>

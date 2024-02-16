@@ -1,0 +1,44 @@
+{%extends 'base.html' %}
+
+{%block title%} GO FIGHT KILL {%endblock%}
+
+{%block styles%} <link rel="stylesheet" href="../static/styles/squad.css"> {%endblock%}
+{%block header%}"../static/imgs/progress.png"{%endblock%}
+{%block content%}
+    <main><h2 class="squad-header">Look at 'em go!</h2></main>
+    <div class="spinner-border spinner" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div id="counter">5</div>
+      <script>
+          setInterval(function() {
+              var div = document.querySelector("#counter");
+              var count = div.textContent * 1 - 1;
+              div.textContent = count;
+              if (count <= 0) {
+                  window.location.replace("{{url_for('main.battle_results', opp_id=opponent.id)}}");
+              }
+          }, 1000);
+      </script>
+    <div class="overall-battle">
+        <div class="trainer your-profile">
+            <img src="{%if current_user.prof_img%} {{current_user.prof_img}} {%else%} ../static/imgs/default_trainer_prof.png {%endif%}" alt="Trainer Sprite" class="trainer-img">
+        </div>
+        <div class="your-squad">
+            <p class="battle-ind">{{current_user.username}}'s squad</p>
+            {%for pokemon in your_squad%}
+                <img src="{{pokemon.battle_url}}" alt="Battle Sprite" class="poke-img pokerock">
+            {%endfor%}
+        </div>
+        <div class="opp-squad">
+            <p class="battle-ind">{{opponent.username}}'s squad</p>
+            {%for pokemon in opp_squad%}
+                <img src="{{pokemon.battle_url}}" alt="Battle Sprite" class="poke-img pokerock">
+            {%endfor%}
+        </div>
+        <div class="trainer">
+            <img src="{%if opponent.prof_img%} {{opponent.prof_img}} {%else%} ../static/imgs/default_trainer_prof.png {%endif%}" alt="Opponent Trainer Sprite" class="trainer-img">
+        </div>
+    </div>
+</div>
+{%endblock%}

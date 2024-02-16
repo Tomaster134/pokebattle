@@ -1,0 +1,55 @@
+{%extends 'base.html' %}
+
+{%block title%} Results! {%endblock%}
+
+{%block styles%} <link rel="stylesheet" href="../static/styles/squad.css"> {%endblock%}
+{%block header%}"../static/imgs/results.png"{%endblock%}
+{%block content%}
+{%if error == True%}
+<div class="error">You tried to refresh a battle results page >:( Go fight a new battle if you want new results!</div>
+<div class="error-img"><img src="../static/imgs/error.gif" alt="Error gif"></div>
+{%else%}    
+<main><h2 class="squad-header">WINNER: {{winner.victor.username}}</h2></main>
+    <div class="overall-battle">
+        <div class="trainer your-profile">
+            <img src="{%if current_user.prof_img%} {{current_user.prof_img}} {%else%} ../static/imgs/default_trainer_prof.png {%endif%}" alt="Trainer Sprite" class="trainer-img">
+        </div>
+        <div class="your-squad">
+            {%if winner.victor == current_user%}
+            <div class="end-gif-div"><img src="../static/imgs/victory.gif" alt="Victory Gif" class="end-gif"></div>
+            {%else%}
+            <div class="end-gif-div"><img src="../static/imgs/losing.gif" alt="Losing Gif" class="end-gif"></div>
+            {%endif%}
+            <p class="battle-ind">{{current_user.username}}'s squad</p>
+            {%for pokemon in your_squad%}
+                <img src="{{pokemon.battle_url}}" alt="Battle Sprite" class="poke-img">
+            {%endfor%}
+        </div>
+        <div class="opp-squad">
+            <p class="battle-ind">{{opponent.username}}'s squad</p>
+            {%for pokemon in opp_squad%}
+                <img src="{{pokemon.battle_url}}" alt="Battle Sprite" class="poke-img">
+            {%endfor%}
+        </div>
+        <div class="trainer">
+            <img src="{%if opponent.prof_img%} {{opponent.prof_img}} {%else%} ../static/imgs/default_trainer_prof.png {%endif%}" alt="Opponent Trainer Sprite" class="trainer-img">
+        </div>
+    </div>
+    <div class="battle-log">
+        <p class="mx-auto d-inline-flex gap-1">
+            <button class="btn btn-primary battle-log-btn" type="button" data-bs-toggle="collapse" data-bs-target="#battle-log" aria-expanded="false" aria-controls="battle-log">
+              Battle Log
+            </button>
+          </p>
+          <div class="collapse" id="battle-log">
+            <div class="card card-body battle-log-body">
+            <ol>{%for entry in winner.log%}
+                <li>{{entry}}</li>
+                {%endfor%}
+            </ol>
+            </div>
+          </div>
+    </div>
+</div>
+{%endif%}
+{%endblock%}

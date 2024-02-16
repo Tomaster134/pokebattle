@@ -1,7 +1,7 @@
 from flask import request, render_template, redirect, url_for, flash
 from . import auth
-from .forms import LoginForm, SignUpForm
-from flask_login import login_user, logout_user, login_required
+from .forms import LoginForm, SignUpForm, ChangeForm
+from flask_login import login_user, logout_user, login_required, current_user
 from app.models import User
 from werkzeug.security import check_password_hash
 from sqlalchemy import exc
@@ -43,8 +43,20 @@ def signup():
     else:
         return render_template('signup.html', form=form)
 
-@auth.route("/logout")
+@auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('main.index'))
+
+@auth.route('/account', methods=['GET', 'POST'])
+@login_required
+def account():
+    account = User.query.get(current_user.id)
+    form = ChangeForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        account.prof_img = form.img_url.data
+        account.save()
+        flash('Successfully updated profile image!', 'success')
+        return render_template('account.html', form=form, account=account)
+    else: return render_template('account.html', form=form, account=account)

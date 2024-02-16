@@ -23,14 +23,11 @@
     <style>
       body {
         background: url(../static/imgs/Pokemon\ Wallpaper.png) center top/cover
-            no-repeat,
-          linear-gradient(
-            180deg,
-            #88ac74 49%,
-            rgba(121, 201, 250, 1) 51%
-          );
+            no-repeat,#88ac74;
+        background-size: 1920px 1080px;
       }
     </style>
+
     {%include './includes/account-menu.html'%}
     <div class="overall">
       <header class="header"><a href="{{ url_for('main.index') }}"><img src={%block header%}{%endblock%} alt="Header Image" class="header-img"></a></header>

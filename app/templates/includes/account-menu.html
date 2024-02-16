@@ -1,33 +1,76 @@
 <div class="btn-group dropstart account-container">
-    <button
-      class="btn btn-secondary account-btn rounded-circle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
+  <button
+    class="btn btn-secondary account-btn rounded-circle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {%if current_user.prof_img%}
+    <img src="{{current_user.prof_img}}" alt="Profile image" class="prof_img" />
+    {%else%}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      fill="currentColor"
+      class="bi bi-person"
+      viewBox="0 0 16 16"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="currentColor"
-        class="bi bi-person"
-        viewBox="0 0 16 16"
+      <path
+        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"
+      />
+    </svg>
+    {%endif%}
+  </button>
+  <ul class="dropdown-menu account-menu">
+    {%if current_user.is_anonymous %}
+    <li>
+      <a class="dropdown-item account-item" href="{{ url_for('auth.login') }}"
+        >Login</a
       >
-        <path
-          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"
-        />
-      </svg>
-    </button>
-    <ul class="dropdown-menu account-menu">
-      {%if current_user.is_anonymous %}
-      <li><a class="dropdown-item account-item" href="{{ url_for('auth.login') }}">Login</a></li>
-      <li><a class="dropdown-item account-item" href="{{ url_for('auth.signup') }}">Signup</a></li>
-      {%else%}
-      <li><p class="account-name">{{current_user.username}}</p></li>
-      <li><a class="dropdown-item account-item" href="{{ url_for('main.index') }}">Home</a></li>
-      <li><a class="dropdown-item account-item" href="{{ url_for('main.pokedex') }}">PokéDex</a></li>
-      <li><a class="dropdown-item account-item" href="{{ url_for('main.account') }}">Account</a></li>
-      <li><a class="dropdown-item account-item" href="{{ url_for('auth.logout') }}">Logout</a></li>
-      {%endif%}
-    </ul>
-  </div>
+    </li>
+    <li>
+      <a class="dropdown-item account-item" href="{{ url_for('auth.signup') }}"
+        >Signup</a
+      >
+    </li>
+    {%else%}
+    <li><p class="account-name">{{current_user.username}}</p></li>
+    <li>
+      <a class="dropdown-item account-item" href="{{ url_for('main.index') }}"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item account-item" href="{{ url_for('main.battle') }}"
+        >Battle</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item account-item" href="{{ url_for('main.pokedex') }}"
+        >PokéDex</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item account-item" href="{{ url_for('main.squad') }}"
+        >Squad</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item account-item" href="{{ url_for('auth.account') }}"
+        >Account</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item account-item" href="{{ url_for('main.record') }}"
+        >Record</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item account-item" href="{{ url_for('auth.logout') }}"
+        >Logout</a
+      >
+    </li>
+    {%endif%}
+  </ul>
+</div>

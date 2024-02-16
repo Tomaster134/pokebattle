@@ -1,0 +1,21 @@
+{%extends 'base.html' %}
+
+{%block title%} {{opponent.username}}'s Squad {%endblock%}
+
+{%block styles%} <link rel="stylesheet" href="../static/styles/squad.css"> {%endblock%}
+{%block header%}"../static/imgs/opp_squad.png"{%endblock%}
+{%block content%}
+    <main><h2 class="squad-header">{{opponent.username}}'s Squad</h2></main>
+    {%if opp_squad%}
+    <a href="{{url_for('main.battle_progress', opp_id=opponent.id) }}" class="btn btn-danger final-btn">Let's Do This!</a>
+    {%include './includes/flash.html'%}
+    <div class="squad">
+    {%for pokemon in opp_squad%}
+    {% include './includes/card.html'%}
+    {%endfor%}
+    </div>
+    {%else%}
+    <p class="no_squad">{{opponent.username}} doesn't have any Pokemon yet! You can't fight someone without a squad :(</p>
+    {%endif%}
+</div>
+{%endblock%}

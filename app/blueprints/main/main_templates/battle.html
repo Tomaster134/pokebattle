@@ -1,0 +1,45 @@
+{%extends 'base.html'%} 
+
+{%block title%}
+    Fight!
+{%endblock%} 
+
+{%block styles%}
+    <link rel="stylesheet" href="../static/styles/battle.css">
+{%endblock%}
+
+{%block header%}"../static/imgs/fight.png"{%endblock%}
+{%block content%}
+<main class="main-overall">
+    {%include './includes/flash.html'%}
+<h2 class="content-header">Choose Your Opponent!</h2>
+{%if current_user.caught.first()%}
+<div class="content-container">
+    <div class="opp-container tbodyDiv">
+        <table class="table table-hover table-responsive battle-row">
+            <thead class="battle-head">
+              <tr class="battle-row">
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">Times Fought</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+            {%for opponent in op_info%}
+              <tr>
+                <th scope="row">{{opponent.trainer.id}}</th>
+                <td>{{opponent.trainer.username}}</td>
+                <td>{{opponent.rec}}</td>
+                <td><a href="{{ url_for('main.battle_preview', opp_id=opponent.trainer.id) }}" class="btn btn-danger battle-btn">Battle!</a></td>
+              </tr>
+            {%endfor%}
+            </tbody>
+          </table>
+</div>
+</div>
+{%else%}
+<p class="blurb">Silly goose! You need Pokemon to battle someone. <a href="{{url_for('main.pokedex')}}">Get some and force them to do your bidding!</a></p>
+{%endif%}</main>
+</div>
+{%endblock%}

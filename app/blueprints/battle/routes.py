@@ -103,7 +103,7 @@ def battle_progress(opp_id):
     session['log'] = winner.log
     return render_template('battle_progress.html', opp_squad=opp_squad, opponent=opponent, your_squad=your_squad)
 
-
+# Something in this section causes a continual refresh of battle_progress I think? Render keeps saying GET battle_results and I now have 250 battles in my database. Not sure if it's because I'm using session to store a variable to move between battle_progress and battle_results?
 @battle.route('/battle_results/<opp_id>')
 @login_required
 def battle_results(opp_id):
@@ -122,16 +122,16 @@ def battle_results(opp_id):
         return render_template('battle_results.html', opp_squad=opp_squad, opponent=opponent, your_squad=your_squad, winner=winner)
     except KeyError: return render_template('battle_results.html', error=True)
 
-@battle.after_request
-def log_clear(response):
-    try:
-        if '/battle_results/' in request.path:
-            del session['winner']
-            del session['log']
-            return response
-    except KeyError:
-        return response
-    return response
+# @battle.after_request
+# def log_clear(response):
+#     try:
+#         if '/battle_results/' in request.path:
+#             del session['winner']
+#             del session['log']
+#             return response
+#     except KeyError:
+#         return response
+#     return response
 
 @battle.route('/test')
 @login_required

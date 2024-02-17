@@ -1,6 +1,6 @@
 {%extends 'base.html'%}
 
-{%block title%} PokeDex {%endblock%}
+{%block title%} {%if pokemon%} {{pokemon.name}} {%else%} PokeDex {%endif%} {%endblock%}
 
 {%block styles%}
 <link rel="stylesheet" href="../static/styles/pokedex.css" />

@@ -1,22 +1,15 @@
-{%extends 'base.html'%} 
-
-{%block title%}
-    Shop
-{%endblock%} 
-
-{%block styles%}
-    <link rel="stylesheet" href="../static/styles/account.css">
-{%endblock%}
-
-{%block header%}"../static/imgs/pokeshop.png"{%endblock%}
-{%block content%}
+{%extends 'base.html'%} {%block title%} Shop {%endblock%} {%block styles%}
+<link rel="stylesheet" href="../static/styles/account.css" />
+{%endblock%} {%block header%}"../static/imgs/pokeshop.png"{%endblock%} {%block
+content%}
 <main class="main-overall">
-    {%include './includes/flash.html'%}
-<h2 class="content-header">Shop!</h2>
-<div class="silly-lil-account-blurb">
-    <p class="blurb">Nah just kidding here's my venmo donate I'm broke AF</p></div>
-    <div class="form-container shop">
-        <img src="../static/imgs/venmo.png" alt="Donate I'm poor" class="venmo">
-    </div>
+  {%include './includes/flash.html'%}
+  <h2 class="content-header">Shop!</h2>
+  <div class="silly-lil-account-blurb">
+    <p class="blurb">Nah just kidding here's my venmo donate I'm broke AF</p>
+  </div>
+  <div class="form-container shop shadow">
+    <img src="../static/imgs/venmo.png" alt="Donate I'm poor" class="venmo" />
+  </div>
 </main>
 {%endblock%}

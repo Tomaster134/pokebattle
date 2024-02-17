@@ -93,3 +93,7 @@ def release(id_num):
     db.session.commit()
     flash(f'{pokemon.name} has been released into the wild. On the one hand, good thing you\'re no longer forcing it into ritual combat. On the other hand, sure hope it knows how to feed itself after a life of captvity. Sheesh.', 'info')
     return redirect(url_for('main.squad'))
+
+@main.route('/shop')
+def shop():
+    return render_template('shop.html')

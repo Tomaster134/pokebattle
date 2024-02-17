@@ -3,7 +3,7 @@
 {%block title%} Results! {%endblock%}
 
 {%block styles%} <link rel="stylesheet" href="../static/styles/squad.css"> {%endblock%}
-{%block header%}"../static/imgs/results.png"{%endblock%}
+{%block header%}{%if winner.victor.id == current_user.id%}"../static/imgs/winner.png"{%else%}"../static/imgs/loser.png"{%endif%}{%endblock%}
 {%block content%}
 {%if error == True%}
 <div class="error">You tried to refresh a battle results page >:( Go fight a new battle if you want new results!</div>
@@ -50,6 +50,5 @@
             </div>
           </div>
     </div>
-</div>
 {%endif%}
 {%endblock%}

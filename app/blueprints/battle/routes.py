@@ -47,40 +47,42 @@ def battler(your_squad, opp_squad, opponent):
         if your_new == True:
             your_hp = your_poke.base_hp
             your_new = False
-            battle_log.append(f'{current_user.username} sends out {your_poke.name}!')
+            battle_log.append(f'You send out {your_poke.name}!')
         if their_new == True:
             their_hp = their_poke.base_hp
             their_new = False
             battle_log.append(f'{opponent.username} sends out {their_poke.name}!')
-        if your_poke.base_spd > their_poke.base_spd: turn = True
+        if (your_poke.base_spd * (randint(80,120)/100)) > (their_poke.base_spd * (randint(80,120)/100)): turn = True
         else: turn = False
         while your_hp > 0 and their_hp > 0:
             if turn == True:
                 your_attack = floor(((your_poke.base_atk + (your_poke.base_s_atk * .2)) + randint(-floor(((your_poke.base_atk + (your_poke.base_s_atk * .2)) * .1)), floor(((your_poke.base_atk + (your_poke.base_s_atk * .2)) * .1)))) - ((their_poke.base_def * .5) + (their_poke.base_s_def * .2)) + randint(-floor((((their_poke.base_def * .5) + (their_poke.base_s_def * .2)) * .1)), floor((((their_poke.base_def * .5) + (their_poke.base_s_def * .2)) * .1))))
                 if your_attack < 0: your_attack = 0
                 their_hp -= your_attack
+                if their_hp < 0: their_hp = 0
                 turn = False
                 if your_attack == 0: 
-                    battle_log.append(f'{your_poke.name} attacks {their_poke.name} but does no damage!')
+                    battle_log.append(f'Your {your_poke.name} attacks their {their_poke.name} but does no damage! {their_hp} HP remaining!')
                 else:
-                    battle_log.append(f'{your_poke.name} attacks {their_poke.name} and deals {your_attack} damage!')
+                    battle_log.append(f'Your {your_poke.name} attacks their {their_poke.name} and deals {your_attack} damage! {their_hp} HP remaining!')
             else:
                 their_attack = floor(((their_poke.base_atk + (their_poke.base_s_atk * .2)) + randint(-floor(((their_poke.base_atk + (their_poke.base_s_atk * .2)) * .1)), floor(((their_poke.base_atk + (their_poke.base_s_atk * .2)) * .1)))) - ((your_poke.base_def * .5) + (your_poke.base_s_def * .2)) + randint(-floor((((your_poke.base_def * .5) + (your_poke.base_s_def * .2)) * .1)), floor((((your_poke.base_def * .5) + (your_poke.base_s_def * .2)) * .1))))
                 if their_attack < 0: their_attack = 0
                 your_hp -= their_attack
+                if your_hp < 0: your_hp = 0
                 turn = True
                 if their_attack == 0: 
-                    battle_log.append(f'{their_poke.name} attacks {your_poke.name} but does no damage!')
+                    battle_log.append(f'Their {their_poke.name} attacks your {your_poke.name} but does no damage! {your_hp} HP remaining!')
                 else:
-                    battle_log.append(f'{their_poke.name} attacks {your_poke.name} and deals {their_attack} damage!')
+                    battle_log.append(f'Their {their_poke.name} attacks your {your_poke.name} and deals {their_attack} damage! {your_hp} HP remaining!')
         if your_hp <= 0:
             your_counter += 1
             your_new = True
-            battle_log.append(f'{your_poke.name} has fainted!')
+            battle_log.append(f'Your {your_poke.name} has fainted!')
         else:
             their_counter += 1
             their_new = True
-            battle_log.append(f'{their_poke.name} has fainted!')
+            battle_log.append(f'Their {their_poke.name} has fainted!')
     if your_counter == len(your_squad):
         battle_log.append(f'{opponent.username} is the victor!')
         output = Output(opponent, battle_log)

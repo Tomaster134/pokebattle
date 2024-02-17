@@ -78,3 +78,10 @@
 .square6 {
   grid-area: square6;
 }
+
+.intro {
+  border: 1px rgba(192, 192, 192, 0.5) solid;
+  background-color: rgba(240, 240, 240, 0.85);
+  padding: 10px;
+  border-radius: 10px;
+}

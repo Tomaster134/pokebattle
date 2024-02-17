@@ -13,6 +13,40 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+.padding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.copyright {
+  position: relative;
+  top: 10px;
+  text-align: center;
+  width: 100%;
+  font-size: 0.8rem;
+  font-style: oblique;
+}
+
+.sub-copyright {
+  position: relative;
+  bottom: 5px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  font-size: 0.5rem;
+  font-style: oblique;
+}
+
+.footer {
+  width: auto;
+  position: absolute;
+  bottom: 0;
 }
 
 .header-img {
@@ -20,10 +54,10 @@
   margin: 20px;
   background: radial-gradient(
     ellipse at center,
-    rgba(255, 0, 0, 1) 0%,
-    rgba(204, 0, 0, 1) 10%,
-    rgba(59, 76, 202, 1) 20%,
-    rgba(144, 198, 248, 1) 50%
+    rgba(255, 0, 0, 0.7) 0%,
+    rgba(204, 0, 0, 0.4) 10%,
+    rgba(59, 76, 202, 0.3) 20%,
+    rgba(144, 198, 248, 1) 70%
   );
 }
 

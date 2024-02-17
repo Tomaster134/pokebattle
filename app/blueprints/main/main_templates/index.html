@@ -9,7 +9,7 @@
 {%endblock%}
 {%block header%}"../static/imgs/pokebattle.png"{%endblock%}
 {%block content%}
-        <main class="main-overall"><p>Welcome to Pokébattle, the soon to be hottest app on the market. Unfortunately, this is still a heavy WIP, so all we've got right now is <a href="{{ url_for('main.pokedex') }}">the Pokédex</a>!</p>
+        <main class="main-overall"><p class="intro">Welcome to Pokébattle, the soon to be hottest app on the market. I hope. Gunna be hotter than PokémonGo. For SURE.</p>
             {%include './includes/flash.html'%}
         <h2 class="content-header">Content!</h2>
         <div class="content-container">
@@ -18,8 +18,6 @@
             <div class="content-square square3"><a class="content-link" href="{{ url_for('battle.battle_page') }}"><img src="../static/imgs/battle_sprite.png" alt="Battle Sprite" class="content-img"></a><p class="content-text">Battle!</p></div>
             <div class="content-square square4"><a class="content-link" href="{{ url_for('auth.account') }}"><img src="../static/imgs/trainer_sprite.png" alt="Account Sprite" class="content-img"></a><p class="content-text">Account</p></div>
             <div class="content-square square5"><a class="content-link" href="{{ url_for('battle.record') }}"><img src="../static/imgs/record.png" alt="Record Sprite" class="content-img"></a><p class="content-text">Record</p></div>
-            <div class="content-square square6"><img src="../static/imgs/pokedex-sprite.png" alt="Pokedex Sprite" class="content-img"><p class="content-text">Test</p></div>
+            <div class="content-square square6"><a class="content-link" href="{{ url_for('main.shop') }}"><img src="../static/imgs/pokemart.png" alt="Shop Sprite" class="content-img"></a><p class="content-text">Shop</p></div>
         </div></main>
-
-    </div>
 {%endblock%}

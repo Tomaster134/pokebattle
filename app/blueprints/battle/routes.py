@@ -115,7 +115,7 @@ def battle_results(opp_id):
             def __init__(self, victor, log):
                 self.victor = victor
                 self.log = log
-        winner = Output(User.query.get(session['winner']), session['log'])
+        winner = Output(User.query.get(session.pop('winner')), session.pop('log'))
         victory = BattleRecord(current_user.id, opponent.id, winner.victor.id)
         victory.save()
 
@@ -129,7 +129,8 @@ def log_clear(response):
             del session['winner']
             del session['log']
             return response
-    except KeyError: return response
+    except KeyError:
+        return response
     return response
 
 @battle.route('/test')

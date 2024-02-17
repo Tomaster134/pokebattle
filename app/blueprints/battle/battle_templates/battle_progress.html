@@ -15,7 +15,7 @@
               var div = document.querySelector("#counter");
               var count = div.textContent * 1 - 1;
               div.textContent = count;
-              if (count <= 0) {
+              if (count = 0) {
                   window.location.replace("{{url_for('battle.battle_results', opp_id=opponent.id)}}");
               }
           }, 1000);

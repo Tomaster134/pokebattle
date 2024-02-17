@@ -104,6 +104,8 @@ def battle_progress(opp_id):
     return render_template('battle_progress.html', opp_squad=opp_squad, opponent=opponent, your_squad=your_squad)
 
 # Something in this section causes a continual refresh of battle_progress I think? Render keeps saying GET battle_results and I now have 250 battles in my database. Not sure if it's because I'm using session to store a variable to move between battle_progress and battle_results?
+
+# It's hitting the battle_results page because the result of the victory is being logged in the database, so the variable is being passed between the two routes. Why does it want to circle back though? Is it the URL redirect?
 @battle.route('/battle_results/<opp_id>')
 @login_required
 def battle_results(opp_id):

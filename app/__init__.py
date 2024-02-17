@@ -19,9 +19,11 @@ login_manager.login_message_category = 'warning'
 
 from app.blueprints.auth import auth
 from app.blueprints.main import main
+from app.blueprints.battle import battle
 
 app.register_blueprint(auth)
 app.register_blueprint(main)
+app.register_blueprint(battle)
 
 @login_manager.user_loader
 def load_user(user_id):

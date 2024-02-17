@@ -22,6 +22,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Username</th>
                 <th scope="col">Times Fought</th>
+                <th scope="col">Times Defeated</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -31,7 +32,8 @@
                 <th scope="row">{{opponent.trainer.id}}</th>
                 <td>{{opponent.trainer.username}}</td>
                 <td>{{opponent.rec}}</td>
-                <td><a href="{{ url_for('main.battle_preview', opp_id=opponent.trainer.id) }}" class="btn btn-danger battle-btn">Battle!</a></td>
+                <td>{{opponent.vic}}</td>
+                <td><a href="{{ url_for('battle.battle_preview', opp_id=opponent.trainer.id) }}" class="btn btn-danger battle-btn">Battle!</a></td>
               </tr>
             {%endfor%}
             </tbody>

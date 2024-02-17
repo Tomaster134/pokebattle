@@ -12,24 +12,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px black solid;
-  background-color: rgba(192, 192, 192, 0.3);
   border-radius: 50px;
   height: 300px;
-  width: 75%;
+  width: 80%;
   margin: 0 40px 40px 40px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 15px 0px;
 }
 
 .opp-container {
   border-radius: 10px;
   padding: 20px;
   margin: 30px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 
 .tbodyDiv {
   max-height: clamp(200px, 250px, 300px);
-  width: 400px;
+  width: 500px;
   overflow: auto;
   scrollbar-color: rgba(58, 106, 227, 0.5) transparent;
   scrollbar-width: thin;
@@ -40,6 +38,7 @@ tbody,
 tr,
 th,
 td {
+  text-align: center;
   background-color: rgba(
     0,
     0,
@@ -49,9 +48,8 @@ td {
 }
 
 .blurb {
-    border: 1px rgba(192, 192, 192, 0.5) solid;
-    background-color: rgba(240, 240, 240, 0.85);
-    padding: 10px;
-    border-radius: 10px;
-  }
-  
+  border: 1px rgba(192, 192, 192, 0.5) solid;
+  background-color: rgba(240, 240, 240, 0.85);
+  padding: 10px;
+  border-radius: 10px;
+}

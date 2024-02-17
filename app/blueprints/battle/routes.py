@@ -3,7 +3,7 @@ from . import battle
 from flask_login import login_required, current_user
 from app.models import User, db, BattleRecord
 
-
+#Opponents is a list of all users, with a class that stores the ID of the opponent, as well as the number of times fought and number of times defeated. Used a class just so I can iterate through users without having to use some kind of index range to make sure all the variables are properly associated with each other. Jinja gets a little cranky with multiple variables in a for loop
 @battle.route('/battle')
 @login_required
 def battle_page():
@@ -21,6 +21,7 @@ def battle_page():
         op_info.append(trainer)
     return render_template('battle.html', op_info=op_info)
 
+#Pretty straightforward, just displays the opponent's squad, having gotten the opponent ID passed in from the previous "battle" page
 @battle.route('/battle_preview/<opp_id>')
 @login_required
 def battle_preview(opp_id):
@@ -28,6 +29,7 @@ def battle_preview(opp_id):
     opp_squad = opponent.caught.all()
     return render_template('battle_preview.html', opp_squad=opp_squad, opponent=opponent)
 
+#Function that actually performs the math to determine the winner of the battle. Pokemon turn order is determined by base_spd, and pokemon then take turns attacking each other, with base_def & base_s_def blocking some damage. HP persists between opponents, and fainted pokemon are eliminated. Random integers are used to introduce variability to the battles. Used a class to return both the winner of the battle and a record of each move that occurred during the battle.
 def battler(your_squad, opp_squad, opponent):
     from random import randint
     from math import floor
@@ -92,6 +94,7 @@ def battler(your_squad, opp_squad, opponent):
         output = Output(current_user, battle_log)
         return output
 
+#Route calls the battle function, and assigns the instatiated object to a "winner" variable. This variable is then used to assign the variables of "winner" and "log" in the "session" dictionary. The "session" is used to be able to pass the two variables from this page to the results page to prevent repeated refreshing of a page to rack up wins.
 @battle.route('/battle_progress/<opp_id>')
 @login_required
 def battle_progress(opp_id):
@@ -107,7 +110,9 @@ def battle_progress(opp_id):
 
 # It's hitting the battle_results page because the result of the victory is being logged in the database, so the variable is being passed between the two routes. Why does it want to circle back though? Is it the URL redirect?
 
-#wasn't even really because of the route. JavaScript just kept resubmitting because it was taking too long to get the next page loaded and it was set to submit a url_for when the counter was less than or equal to 0, so it just kept resubmitting every 1000ms
+#wasn't even really because of the route. JavaScript just kept resubmitting because it was taking too long to get the next page loaded and it was set to submit a url_for when the counter was less than or equal to 0, so it just kept resubmitting every 1000ms. Fixed by only having it call the next URL when counter hits zero.
+
+#Battle results page pops off the two "session" values to display the winner and battle log. This clears those entries so if you refresh the page, you are told you need to fight another battle to see a new set of results.
 @battle.route('/battle_results/<opp_id>')
 @login_required
 def battle_results(opp_id):
@@ -125,6 +130,8 @@ def battle_results(opp_id):
 
         return render_template('battle_results.html', opp_squad=opp_squad, opponent=opponent, your_squad=your_squad, winner=winner)
     except KeyError: return render_template('battle_results.html', error=True)
+
+#Didn't end up needing this because I used .pop to clean the session entries, but still want to keep it so I can remember about .after_request
 
 # @battle.after_request
 # def log_clear(response):
@@ -146,6 +153,7 @@ def test():
     total = int(attack) + int(defend)
     return f'attack: {attack} defend: {defend} victories: {victories} total fights: {total}'
 
+# Fairly simple route that just displays some stats about how many battles you've fought, how many you started, etc etc
 @battle.route('/record')
 @login_required
 def record():

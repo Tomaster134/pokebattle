@@ -6,10 +6,12 @@ import requests
 from random import randint
 from app.models import Pokemon, db
 
+#Homepage route. Nothing too fancy.
 @main.route('/')
 def index():
     return render_template('index.html')
 
+#Function used to search pokemon. Needed to include a None -> 0 check because otherwise my battle route gets fussy.
 def pokegrabber(pokemon=''):
     if pokemon == 'random' or pokemon == '':
         pokemon = randint(1,1025)
@@ -37,6 +39,7 @@ def pokegrabber(pokemon=''):
     elif response.status_code == 404: return '404 error code. Pokémon name or ID either doesn\'t exist or was mispelled. Please try again.'
     else: return f'{response.status_code} error code.'
 
+#Route for pokemon lookups. Just serves up an error page in the event that the pokemon doesn't exist, otherwise displays the card associated with that pokemon.
 @main.route('/pokedex', methods=['GET','POST'])
 def pokedex():
     form = PokeLookUp()
@@ -51,13 +54,14 @@ def pokedex():
     else:
         return render_template('pokedex.html', form=form)
 
-
+#Just displays all the pokemon that are in your squad.
 @main.route('/squad')
 @login_required
 def squad():
     squad = current_user.caught.all()
     return render_template('squad.html', squad=squad)
 
+#Catch route. Checks to see if you're maxed at 6 pokemon, and if you already caught the pokemon. If you pass both those checks, the pokemon is added to your squad. Pokemon is also added to the database if it isn't already in there.
 @main.route('/catch/<id_num>')
 @login_required
 def catch(id_num):
@@ -84,7 +88,8 @@ def catch(id_num):
             db.session.commit()
             flash('Pokémon successfully added to squad!', 'success')
             return redirect(url_for('main.pokedex'))
-        
+    
+#Release route. Just removes the pokemon from your squad and guilt trips you about forcing these poor pokemon to fight each other for your pleasure.
 @main.route('/release/<id_num>')
 @login_required
 def release(id_num):
@@ -94,6 +99,7 @@ def release(id_num):
     flash(f'{pokemon.name} has been released into the wild. On the one hand, good thing you\'re no longer forcing it into ritual combat. On the other hand, sure hope it knows how to feed itself after a life of captvity. Sheesh.', 'info')
     return redirect(url_for('main.squad'))
 
+#AYO DONATE TO MY VENMO SUPPORT BROKE PEOPLE
 @main.route('/shop')
 def shop():
     return render_template('shop.html')

@@ -6,7 +6,7 @@ from app.models import User
 from werkzeug.security import check_password_hash
 from sqlalchemy import exc
 
-
+#Login route that checks the information from the login form against the database. If everything matches up, great, let 'em in. Uses WTFlask to prevent CSRF attacks
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -24,7 +24,8 @@ def login():
             return render_template('login.html', form=form)
     else:
         return render_template('login.html', form=form)
-    
+
+#Signup form that checks to see if the email or username is taken. If not, signs up user and enters their information into the database. Uses WTFlask to prevent CSRF attacks.
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignUpForm()
@@ -43,12 +44,14 @@ def signup():
     else:
         return render_template('signup.html', form=form)
 
+#Logout route. Pretty straightforward.
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('main.index'))
 
+#Basic route to allow users to change their profile picture. Want to include a method to delete their account, but would need to figure out a way to keep battle stats intact while removing the user that's associated with the entries.
 @auth.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():

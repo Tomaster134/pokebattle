@@ -72,29 +72,40 @@
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: gold;
   background: rgb(255, 222, 5);
   background: linear-gradient(
-    180deg,
-    rgba(255, 222, 0, 1) 0%,
-    rgba(60, 90, 166, 1) 50%,
-    rgba(42, 117, 187, 1) 75%,
-    rgba(205, 0, 0, 1) 100%
-  );
+      180deg,
+      rgba(205, 0, 0, 1) 0%,
+      rgba(255, 222, 0, 1) 25%,
+      rgba(60, 90, 166, 1) 50%,
+      rgba(42, 117, 187, 1) 75%,
+      rgba(205, 0, 0, 1) 100%
+    )
+    0 0/100% 200%;
   color: black;
   border-radius: 20px;
+  animation: pokecard 20s linear infinite;
+}
+
+@keyframes pokecard {
+  to {
+    background-position: 0 -200%;
+  }
 }
 
 /* Style the back side */
 .flip-card-back {
-  background: rgb(255, 203, 5);
+  background: rgb(255, 222, 5);
   background: linear-gradient(
-    0deg,
-    rgba(255, 222, 0, 1) 0%,
-    rgba(60, 90, 166, 1) 50%,
-    rgba(42, 117, 187, 1) 75%,
-    rgba(205, 0, 0, 1) 100%
-  );
+      0deg,
+      rgba(205, 0, 0, 1) 0%,
+      rgba(255, 222, 0, 1) 25%,
+      rgba(60, 90, 166, 1) 50%,
+      rgba(42, 117, 187, 1) 75%,
+      rgba(205, 0, 0, 1) 100%
+    )
+    0 0/100% 200%;
+  animation: pokecard 20s linear infinite;
   color: white;
   border-radius: 20px;
   transform: rotateY(180deg);

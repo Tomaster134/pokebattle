@@ -238,12 +238,20 @@
 }
 
 .battle-log-body {
-  background: #333333;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, rgba(221, 24, 24, 0.9), rgba(51, 51, 51, 0.75));  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, rgba(221, 24, 24, 0.9), rgba(51, 51, 51, 0.75)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #333333; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    rgba(221, 24, 24, 0.9),
+    rgba(51, 51, 51, 0.75)
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgba(221, 24, 24, 0.9),
+    rgba(51, 51, 51, 0.75)
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-  rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-  rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-radius: 5%;
   border: none;
   margin-bottom: 10px;
@@ -260,12 +268,15 @@
 }
 
 .error {
-    border: 1px rgba(192, 192, 192, 0.5) solid;
-    background-color: rgba(240, 240, 240, 0.85);
-    padding: 10px;
-    border-radius: 10px;
+  border: 1px rgba(192, 192, 192, 0.5) solid;
+  background-color: rgba(240, 240, 240, 0.85);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .error-img {
+  position: relative;
   margin: 40px;
+  transform: scale(50%);
+  bottom: 80px;
 }

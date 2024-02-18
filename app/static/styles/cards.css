@@ -121,7 +121,7 @@
 
 .info-text {
   font-family: "VT323", monospace;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .front-text {
@@ -146,7 +146,7 @@
 }
 
 .type {
-  bottom: -10px;
+  bottom: -25px;
 }
 
 .fighting {

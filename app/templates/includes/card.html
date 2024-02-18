@@ -2,7 +2,7 @@
 
 <div class="flip-card">
   <div class="flip-card-inner">
-    <div class="flip-card-front">
+    <div class="flip-card-front {{pokemon.element}}">
       <img
         src="{{pokemon.sprite_url}}"
         alt="Avatar"
@@ -11,7 +11,7 @@
       />
       <p class="front-text">{{pokemon.name}}</p>
     </div>
-    <div class="flip-card-back">
+    <div class="flip-card-back {{pokemon.element}}-b">
       <h1 class="front-text">{{pokemon.name}}</h1>
       <p class="id_num">{{pokemon.id_num}}</p>
       <div class="information">
@@ -29,5 +29,11 @@
       </div>
     </div>
   </div>
-  {%if squad%} <a href="{{url_for('main.release', id_num=pokemon.id_num)}}" class="btn btn-danger release">Release</a> {%endif%}
+  {%if squad%}
+  <a
+    href="{{url_for('main.release', id_num=pokemon.id_num)}}"
+    class="btn btn-danger release"
+    >Release</a
+  >
+  {%endif%}
 </div>

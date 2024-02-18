@@ -38,8 +38,9 @@ class Pokemon(db.Model):
     sprite_url = db.Column(db.String, nullable=False)
     ability = db.Column(db.String, nullable=False)
     battle_url = db.Column(db.String, nullable=False)
+    element = db.Column(db.String, nullable=False)
 
-    def __init__(self, id_num, name, base_hp, base_atk, base_def, base_s_atk, base_s_def, base_spd, base_exp, sprite_url, ability, battle_url):
+    def __init__(self, id_num, name, base_hp, base_atk, base_def, base_s_atk, base_s_def, base_spd, base_exp, sprite_url, ability, battle_url, element):
         self.id_num = id_num
         self.name = name
         self.base_hp = base_hp
@@ -52,6 +53,7 @@ class Pokemon(db.Model):
         self.sprite_url = sprite_url
         self.ability = ability
         self.battle_url = battle_url
+        self.element = element
 
     def save(self):
         db.session.add(self)

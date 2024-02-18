@@ -31,7 +31,8 @@ def pokegrabber(pokemon=''):
             'ability': data['abilities'][0]['ability']['name'].replace('-', ' ').title(),
             'sprite_url': data['sprites']['other']['official-artwork']['front_default'],
             'id_num': data['id'],
-            'battle_url': data['sprites']['front_shiny']
+            'battle_url': data['sprites']['front_shiny'],
+            'element': data['types'][0]['type']['name']
         }
         for key, value in pokedict.items():
             if value == None: pokedict[key] = 0
@@ -45,11 +46,12 @@ def pokedex():
     form = PokeLookUp()
     if request.method == 'POST' and form.validate_on_submit:
         lookup = form.pokemon.data
-        if 'error code' in pokegrabber(lookup):
-            error = pokegrabber(lookup)
+        poke = pokegrabber(lookup)
+        if 'error code' in poke:
+            error = poke
             return render_template('error.html', error=error)
         else:
-            pokemon = pokegrabber(lookup)
+            pokemon = poke
             return render_template('pokedex.html', pokemon=pokemon, form=form)
     else:
         return render_template('pokedex.html', form=form)
@@ -81,7 +83,7 @@ def catch(id_num):
                 return redirect(url_for('main.pokedex'))
         else:
             temp = pokegrabber(id_num)
-            new_pokemon = Pokemon(id_num=temp['id_num'], name=temp['name'], base_hp=temp['base_hp'], base_atk=temp['base_atk'], base_def=temp['base_def'], base_s_atk=temp['base_s_atk'], base_s_def=temp['base_s_def'], base_spd=temp['base_spd'], base_exp=temp['base_exp'], sprite_url=temp['sprite_url'], ability=temp['ability'], battle_url=temp['battle_url'])
+            new_pokemon = Pokemon(id_num=temp['id_num'], name=temp['name'], base_hp=temp['base_hp'], base_atk=temp['base_atk'], base_def=temp['base_def'], base_s_atk=temp['base_s_atk'], base_s_def=temp['base_s_def'], base_spd=temp['base_spd'], base_exp=temp['base_exp'], sprite_url=temp['sprite_url'], ability=temp['ability'], battle_url=temp['battle_url'], element=temp['element'])
             new_pokemon.save()
             pokemon = Pokemon.query.get(id_num)
             current_user.caught.append(pokemon)

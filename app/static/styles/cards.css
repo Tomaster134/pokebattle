@@ -150,78 +150,166 @@
 }
 
 .fighting {
-  background: linear-gradient(0deg, #dd1818, #333333, #dd1818) 0 0/100% 200%;
+  background: linear-gradient(
+      0deg,
+      #333333 0%,
+      #800b11 20%,
+      #e81319 40%,
+      #d36063 60%,
+      #ffaeaa 80%,
+      #333333 100%
+    )
+    0 0/100% 200%;
 }
 .fighting-b {
-  background: linear-gradient(180deg, #333333, #dd1818, #333333) 0 0/100% 200%;
+  background: linear-gradient(
+      180deg,
+      #333333 0%,
+      #800b11 20%,
+      #e81319 40%,
+      #d36063 60%,
+      #ffaeaa 80%,
+      #333333 100%
+    )
+    0 0/100% 200%;
 }
 
 .flying {
   background: linear-gradient(
       0deg,
-      #fdeff9 0%,
-      #ec38bc 25%,
-      #7303c0 50%,
-      #03001e 75%,
-      #fdeff9 100%
+      #085764 0%,
+      #5eb9b2 20%,
+      #dce5ea 40%,
+      #e3fcff 70%,
+      #085764 100%
     )
     0 0/100% 200%;
 }
 .flying-b {
   background: linear-gradient(
       180deg,
-      #fdeff9 0%,
-      #ec38bc 25%,
-      #7303c0 50%,
-      #03001e 75%,
-      #fdeff9 100%
+      #085764 0%,
+      #5eb9b2 20%,
+      #dce5ea 40%,
+      #e3fcff 70%,
+      #085764 100%
     )
     0 0/100% 200%;
 }
 
 .poison {
-  background: linear-gradient(180deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #333399 0%,
+      #611380 20%,
+      #a819d7 40%,
+      #ca72ec 60%,
+      #f2d0ff 80%,
+      #333399 100%
+    )
+    0 0/100% 200%;
 }
 .poison-b {
-  background: linear-gradient(0deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      0deg,
+      #333399 0%,
+      #611380 20%,
+      #a819d7 40%,
+      #ca72ec 60%,
+      #f2d0ff 80%,
+      #333399 100%
+    )
+    0 0/100% 200%;
 }
 
 .ground {
-  background: linear-gradient(180deg, #dba825 0%, #ffe79e 50%, #dba825 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #bfac21 0%,
+      #e1d158 25%,
+      #ede293 50%,
+      #e6dfac 75%,
+      #bfac21 100%
+    )
+    0 0/100% 200%;
 }
 .ground-b {
-  background: linear-gradient(0deg, #dba825 0%, #ffe79e 50%, #dba825 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      0deg,
+      #bfac21 0%,
+      #e1d158 25%,
+      #ede293 50%,
+      #e6dfac 75%,
+      #bfac21 100%
+    )
+    0 0/100% 200%;
 }
 
 .rock {
-  background: linear-gradient(0deg, #ffe259 0%, #ffa751 20%, #ffe259 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      0deg,
+      #474026 0%,
+      #776a3e 25%,
+      #94834f 50%,
+      #b4a270 75%,
+      #474026 100%
+    )
+    0 0/100% 200%;
 }
 .rock-b {
-  background: linear-gradient(180deg, #ffe259 0%, #ffa751 20%, #ffe259 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #474026 0%,
+      #776a3e 25%,
+      #94834f 50%,
+      #b4a270 75%,
+      #474026 100%
+    )
+    0 0/100% 200%;
 }
 
 .bug {
-  background: linear-gradient(0deg, #ffe000 0%, #799f0c 20%, #ffe000 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      0deg,
+      #91ba2e 0%,
+      #bddd6e 25%,
+      #d9fe9e 50%,
+      #e7ffc0 75%,
+      #91ba2e 100%
+    )
+    0 0/100% 200%;
 }
 .bug-b {
-  background: linear-gradient(180deg, #ffe000 0%, #799f0c 20%, #ffe000 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #91ba2e 0%,
+      #bddd6e 25%,
+      #d9fe9e 50%,
+      #e7ffc0 75%,
+      #91ba2e 100%
+    )
+    0 0/100% 200%;
 }
 
 .ghost {
-  background: linear-gradient(0deg, #7f00ff 0%, #e100ff 20%, #7f00ff 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      0deg,
+      #472b53 0%,
+      #e100ff 33%,
+      #7f00ff 66%,
+      #472b53 100%
+    )
+    0 0/100% 200%;
 }
 .ghost-b {
-  background: linear-gradient(180deg, #7f00ff 0%, #e100ff 20%, #7f00ff 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #472b53 0%,
+      #e100ff 33%,
+      #7f00ff 66%,
+      #472b53 100%
+    )
+    0 0/100% 200%;
 }
 
 .steel {
@@ -248,39 +336,93 @@
 }
 
 .fire {
-  background: linear-gradient(0deg, #f12711 0%, #f5af19 20%, #f12711 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      0deg,
+      #fc0c0b 0%,
+      #f67f0b 20%,
+      #f8b80e 40%,
+      #ffeac3 70%,
+      #fc0c0b 100%
+    )
+    0 0/100% 200%;
 }
 .fire-b {
-  background: linear-gradient(180deg, #f12711 0%, #f5af19 20%, #f12711 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #fc0c0b 0%,
+      #f67f0b 20%,
+      #f8b80e 40%,
+      #ffeac3 70%,
+      #fc0c0b 100%
+    )
+    0 0/100% 200%;
 }
 
 .water {
-  background: linear-gradient(0deg, #00d2ff 0%, #3a7bd5 20%, #00d2ff 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      0deg,
+      #0a669b 0%,
+      #0a7abc 20%,
+      #36aff6 40%,
+      #f1faff 70%,
+      #0a669b 100%
+    )
+    0 0/100% 200%;
 }
 .water-b {
-  background: linear-gradient(180deg, #00d2ff 0%, #3a7bd5 20%, #00d2ff 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #0a669b 0%,
+      #0a7abc 20%,
+      #36aff6 40%,
+      #f1faff 70%,
+      #0a669b 100%
+    )
+    0 0/100% 200%;
 }
 
 .grass {
-  background: linear-gradient(180deg, #1abf30 0%, #fdfc47 20%, #1abf30 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #204000 0%,
+      #3e9709 20%,
+      #67f70a 40%,
+      #effee7 70%,
+      #204000 100%
+    )
+    0 0/100% 200%;
 }
 .grass-b {
-  background: linear-gradient(0deg, #1abf30 0%, #fdfc47 20%, #1abf30 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      0deg,
+      #204000 0%,
+      #3e9709 20%,
+      #67f70a 40%,
+      #effee7 70%,
+      #204000 100%
+    )
+    0 0/100% 200%;
 }
 
 .electric {
-  background: linear-gradient(0deg, #fffc00 0%, #ffffff 20%, #fffc00 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      0deg,
+      #fffa24 0%,
+      #f7ff85 40%,
+      #fff9d5 70%,
+      #fffa24 100%
+    )
+    0 0/100% 200%;
 }
 .electric-b {
-  background: linear-gradient(180deg, #fffc00 0%, #ffffff 20%, #fffc00 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #fffa24 0%,
+      #f7ff85 40%,
+      #fff9d5 70%,
+      #fffa24 100%
+    )
+    0 0/100% 200%;
   color: black;
 }
 
@@ -288,7 +430,7 @@
   background: linear-gradient(
       180deg,
       #feac5e 0%,
-      #c779d0 33%,
+      #f55792 33%,
       #4bc0c8 66%,
       #feac5e 100%
     )
@@ -298,7 +440,7 @@
   background: linear-gradient(
       0deg,
       #feac5e 0%,
-      #c779d0 33%,
+      #f55792 33%,
       #4bc0c8 66%,
       #feac5e 100%
     )
@@ -326,50 +468,74 @@
     0 0/100% 200%;
 }
 
-/* .dragon {
-  background: linear-gradient(0deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
+.dragon {
+  background: linear-gradient(
+      0deg,
+      #29036a 0%,
+      #8a55fd 20%,
+      #d6b1fe 40%,
+      #e8d2ff 70%,
+      #29036a 100%
+    )
+    0 0/100% 200%;
 }
 .dragon-b {
-  background: linear-gradient(0deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #29036a 0%,
+      #8a55fd 20%,
+      #d6b1fe 40%,
+      #e8d2ff 70%,
+      #29036a 100%
+    )
+    0 0/100% 200%;
 }
 
 .dark {
-  background: linear-gradient(0deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      0deg,
+      #2d221c 0%,
+      #5f4632 25%,
+      #916852 50%,
+      #4f4f4f 75%,
+      #2d221c 100%
+    )
+    0 0/100% 200%;
 }
 .dark-b {
-  background: linear-gradient(0deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #2d221c 0%,
+      #5f4632 25%,
+      #916852 50%,
+      #4f4f4f 75%,
+      #2d221c 100%
+    )
+    0 0/100% 200%;
 }
 
 .fairy {
-  background: linear-gradient(0deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      180deg,
+      #f87ea7 0%,
+      #ffa0c2 20%,
+      #fdd1e0 40%,
+      #ffcbdd 70%,
+      #f87ea7 100%
+    )
+    0 0/100% 200%;
 }
 .fairy-b {
-  background: linear-gradient(0deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
+  background: linear-gradient(
+      0deg,
+      #f87ea7 0%,
+      #ffa0c2 20%,
+      #fdd1e0 40%,
+      #ffcbdd 70%,
+      #f87ea7 100%
+    )
+    0 0/100% 200%;
 }
-
-.unknown {
-  background: linear-gradient(0deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
-}
-.unknown-b {
-  background: linear-gradient(0deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
-}
-
-.shadow {
-  background: linear-gradient(0deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
-}
-.shadow-b {
-  background: linear-gradient(0deg, #a33ea1 0%, #333399 20%, #a33ea1 100%) 0 0/100%
-    200%;
-} */
 
 :root {
   --gradient-shadow: linear-gradient(

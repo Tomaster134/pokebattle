@@ -147,11 +147,8 @@ def battle_results(opp_id):
 @battle.route('/test')
 @login_required
 def test():
-    attack = str(len(db.session.query(BattleRecord).filter(current_user.id == BattleRecord.aggressor_id).all()))
-    defend = str(len(db.session.query(BattleRecord).filter(current_user.id == BattleRecord.defender_id).all()))
-    victories = str(len(db.session.query(BattleRecord).filter(current_user.id == BattleRecord.victor_id).all()))
-    total = int(attack) + int(defend)
-    return f'attack: {attack} defend: {defend} victories: {victories} total fights: {total}'
+    session['test'] = 'this is a test'
+    return render_template('test.html')
 
 # Fairly simple route that just displays some stats about how many battles you've fought, how many you started, etc etc
 @battle.route('/record')

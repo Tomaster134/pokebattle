@@ -20,7 +20,7 @@ def pokegrabber(pokemon=''):
     if response.ok:
         data = response.json()
         pokedict = {
-            'name': data['forms'][0]['name'].replace('-', ' ').title(),
+            'name': data['species']['name'].replace('-', ' ').title(),
             'base_hp': data['stats'][0]['base_stat'],
             'base_atk': data['stats'][1]['base_stat'],
             'base_def': data['stats'][2]['base_stat'],
